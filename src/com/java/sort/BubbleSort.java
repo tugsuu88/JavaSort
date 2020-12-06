@@ -4,7 +4,7 @@ public class BubbleSort {
     public static int[] sort(int[] arr) {
         try {
             for(int i = 0; i< arr.length; i++) {
-                for(int j=1; j< arr.length-i-1; j++) {
+                for(int j=1; j< arr.length-i; j++) {
                     if(arr[j] < arr[j-1]) {
                         int temp = arr[j-1];
                         arr[j-1] = arr[j];
