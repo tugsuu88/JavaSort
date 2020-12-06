@@ -7,6 +7,5 @@ public class Sort {
         PrintArray.Print(arr);
         System.out.println("");
         arr = BubbleSort.sort(arr);
-        PrintArray.Print(arr);
     }
 }
