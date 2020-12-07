@@ -7,7 +7,8 @@ public class Sort {
         PrintArray.Print(arr);
         System.out.println("");
 //        BubbleSort.sort(arr);
-        arr = SelectionSort.sort(arr);
+//        arr = SelectionSort.sort(arr);
+        MergeSort.sort(arr, 0, arr.length - 1);
         PrintArray.Print(arr);
     }
 }
