@@ -6,6 +6,8 @@ public class Sort {
         int arr[] = {64, 34, 25, 12, 22, 90, 11};
         PrintArray.Print(arr);
         System.out.println("");
-        arr = BubbleSort.sort(arr);
+//        BubbleSort.sort(arr);
+        arr = SelectionSort.sort(arr);
+        PrintArray.Print(arr);
     }
 }
