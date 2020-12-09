@@ -1,4 +1,4 @@
-package com.java.sort;
+package com.java.sort.sort;
 
 public class PrintArray {
     static void Print(int[] arr) {

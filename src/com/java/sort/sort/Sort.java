@@ -1,4 +1,4 @@
-package com.java.sort;
+package com.java.sort.sort;
 
 public class Sort {
     public static void main(String[] args) {
