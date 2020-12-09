@@ -1,50 +1,42 @@
 package com.java.sort;
 
 public class MergeSort {
-    static void sort(int arr[], int l, int r)
-    {
-        if (l < r) {
-            int m = (l + r) / 2;
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
-            merge(arr, l, m, r);
-        }
+    public void mergeSort(int[] array) {
+        mergeSort(array, new int[array.length], 0, array.length -1);
     }
 
-    static void merge(int arr[], int l, int m, int r)
-    {
-        int n1 = m - l + 1;
-        int n2 = r - m;
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+    public void mergeSort(int[] array, int[] tempArray, int leftStart, int rightEnd) {
+        if(leftStart >= rightEnd) {
+            return;
+        }
+        int middle = (leftStart + rightEnd)/2;
+        mergeSort(array, tempArray, leftStart, middle); // sortLeftSide
+        mergeSort(array, tempArray, middle + 1, rightEnd); //sortRightSide
+        mergeHalves(array, tempArray, leftStart, rightEnd);
+    }
 
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
+    public void mergeHalves(int [] array, int[] tempArray, int leftStart,int rightEnd) {
+        int leftEnd = (rightEnd + leftStart)/2;
+        int rightStart = leftEnd + 1;
+        int size = rightEnd - leftStart + 1;
 
-        int i = 0, j = 0;
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
-                i++;
+        int left = leftStart;
+        int right = rightStart;
+        int index = leftStart;
+
+        while(left <= leftEnd && right <= rightEnd) {
+            if(array[left] < array[right]) {
+                tempArray[index] = array[left];
+                left++;
+            } else {
+                tempArray[index] = array[right];
+                right++;
             }
-            else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
+            index++;
         }
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
-        }
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
-        }
+
+        System.arraycopy(array, left, tempArray, index, leftEnd - left + 1);
+        System.arraycopy(array, right, tempArray, index, rightEnd - right + 1);
+        System.arraycopy(tempArray, leftStart, array, leftStart, size);
     }
 }
