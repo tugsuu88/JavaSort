@@ -1,5 +1,7 @@
 package com.java.sort.sort;
 
+import Search.BinarySearch;
+
 public class Sort {
     public static void main(String[] args) {
         System.out.println("tugsuu");
@@ -12,7 +14,8 @@ public class Sort {
 
         MergeSort mergeSort = new MergeSort();
         mergeSort.mergeSort(arr);
-
         PrintArray.Print(arr);
+        boolean isFound = BinarySearch.binarySearchRecursive(arr, 12);
+        System.out.println("isFound: " + isFound);
     }
 }
